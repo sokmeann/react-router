@@ -108,7 +108,7 @@ export default class AppContainer extends Component {
       .then(album => this.setState({
         selectedAlbum: convertAlbum(album)
       }))
-      .catch(console.log('HEllo!'));
+      .catch();
   }
 
   selectArtist (artistId) {
