@@ -9,7 +9,7 @@ import Album from '../components/Album';
 import Sidebar from '../components/Sidebar';
 import Player from '../components/Player';
 
-import { convertAlbum, convertAlbums, skip } from '../utils';
+import { convertAlbum, convertAlbums, convertSong, skip } from '../utils';
 
 export default class AppContainer extends Component {
 
@@ -127,10 +127,8 @@ export default class AppContainer extends Component {
 
         return Promise.all([albumsPromise, songsPromise])
         .then(([albums, songs]) => {
-          console.log('artist.albums', albums);
-          console.log('artist.songs', songs);
-          artist.albums = albums;
-          artist.songs = songs;
+          artist.albums = convertAlbums(albums);
+          artist.songs = songs.map(convertSong);
           return artist;
         })
       })
