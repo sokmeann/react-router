@@ -8,6 +8,8 @@ const Songs = (props) => {
   const toggle = props.toggleOne;
 
   return (
+    <div>
+    <h3>Songs</h3>
     <table className='table'>
       <thead>
         <tr>
@@ -36,6 +38,7 @@ const Songs = (props) => {
         }
       </tbody>
     </table>
+    </div>
   );
 }
 

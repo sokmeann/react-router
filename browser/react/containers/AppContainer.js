@@ -23,7 +23,6 @@ export default class AppContainer extends Component {
     this.prev = this.prev.bind(this);
     this.selectAlbum = this.selectAlbum.bind(this);
     this.selectArtist = this.selectArtist.bind(this);
-    //this.deselectAlbum = this.deselectAlbum.bind(this);
   }
 
   componentDidMount () {
@@ -47,15 +46,12 @@ export default class AppContainer extends Component {
     this.setState({
       albums: albums
     });
-    console.log(this.state);
   }
 
   onArtistLoad (artists) {
-
     this.setState({
       artists: artists
     });
-    console.log(this.state);
   }
 
   play () {
@@ -111,14 +107,14 @@ export default class AppContainer extends Component {
       .then(res => res.data)
       .then(album => this.setState({
         selectedAlbum: convertAlbum(album)
-      }));
+      }))
+      .catch(console.log('HEllo!'));
   }
 
   selectArtist (artistId) {
     axios.get(`/api/artists/${ artistId }`)
       .then(res => res.data)
       .then(artist => {
-        console.log('artist1', artist);
         const albumsPromise = axios.get(`/api/artists/${ artistId }/albums`)
         .then(res => res.data)
 

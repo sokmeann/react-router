@@ -8,7 +8,7 @@ class Artists extends React.Component {
   }
 
   render() {
-    console.log('artists', this.props.artists)
+
     return (
     <div>
       <h3>Artists</h3>

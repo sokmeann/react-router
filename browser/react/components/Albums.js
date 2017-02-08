@@ -10,7 +10,7 @@ const Albums = (props) => {
       <h3>Albums</h3>
       <div className="row">
       {
-        albums.map(album => (
+        albums && albums.map(album => (
           <div className="col-xs-4" key={ album.id }>
             <Link to={`/albums/${ album.id }`} className="thumbnail">
               <img src={ album.imageUrl } />
